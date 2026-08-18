@@ -1,3 +1,25 @@
+/* ==========================================
+   PALETA DE COLORES - VERSIÓN 2
+   ========================================== */
+:root {
+  /* Colores Principales */
+  --primary: #1e3a8a;          /* Azul marino profundo (Header / Títulos) */
+  --primary-dark: #1e293b;     /* Azul/Gris oscuro para hovers y contraste */
+  --accent: #0284c7;           /* Azul dinámico (Botones) */
+  --accent-hover: #0369a1;     /* Azul hover */
+  --highlight: #059669;        /* Verde esmeralda (Precios y Promociones) */
+  --highlight-bg: #d1fae5;     /* Fondo suave para mensaje de promoción */
+
+  /* Fondos y Textos */
+  --bg-main: #f8fafc;          /* Fondo general más limpio */
+  --bg-card: #ffffff;          /* Fondo tarjetas */
+  --bg-hero: #e0f2fe;          /* Fondo banner */
+  --text-primary: #0f172a;     /* Texto principal alto contraste */
+  --text-footer: #94a3b8;      /* Texto de pie de página */
+  --footer-bg: #0f172a;        /* Fondo pie de página */
+}
+
+/* Base */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,19 +28,20 @@
 }
 
 body {
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
     line-height: 1.6;
 }
 
 /* Encabezado */
 header {
-    background-color: #00796b;
+    background-color: var(--primary);
     color: white;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
@@ -26,37 +49,41 @@ nav a {
     text-decoration: none;
     margin-left: 1.5rem;
     font-weight: bold;
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
+    color: #93c5fd;
     text-decoration: underline;
 }
 
 /* Sección Banner / Hero */
 #hero {
-    background-color: #e0f2f1;
+    background-color: var(--bg-hero);
     text-align: center;
     padding: 3rem 1rem;
 }
 
 #hero h2 {
-    color: #004d40;
+    color: var(--primary);
     margin-bottom: 0.5rem;
 }
 
 #btnPromocion {
     margin-top: 1rem;
     padding: 0.6rem 1.2rem;
-    background-color: #00796b;
+    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
 }
 
 #btnPromocion:hover {
-    background-color: #004d40;
+    background-color: var(--primary-dark);
 }
 
 .oculto {
@@ -67,10 +94,11 @@ nav a:hover {
     margin: 1rem auto 0 auto;
     max-width: 400px;
     padding: 1rem;
-    background-color: #c8e6c9;
+    background-color: var(--highlight-bg);
     border-radius: 4px;
-    color: #2e7d32;
+    color: var(--highlight);
     font-weight: bold;
+    border: 1px solid var(--highlight);
 }
 
 /* Productos */
@@ -83,7 +111,7 @@ nav a:hover {
 #productos h2 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #00796b;
+    color: var(--primary);
 }
 
 .grid-productos {
@@ -93,45 +121,48 @@ nav a:hover {
 }
 
 .card {
-    background: white;
+    background: var(--bg-card);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid #e2e8f0;
 }
 
 .card h3 {
-    color: #004d40;
+    color: var(--primary);
     margin-bottom: 0.5rem;
 }
 
 .precio {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    color: #2e7d32;
+    color: var(--highlight);
     margin: 1rem 0;
     display: block;
 }
 
 .btn-comprar {
-    background-color: #0288d1;
+    background-color: var(--accent);
     color: white;
     border: none;
-    padding: 0.5rem;
+    padding: 0.6rem;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
 }
 
 .btn-comprar:hover {
-    background-color: #01579b;
+    background-color: var(--accent-hover);
 }
 
 /* Pie de página */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: var(--footer-bg);
+    color: var(--text-footer);
     text-align: center;
     padding: 1.5rem;
     margin-top: 2rem;
