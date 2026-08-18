@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+    background-color: #00796b;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sección Banner / Hero */
+#hero {
+    background-color: #e0f2f1;
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+#hero h2 {
+    color: #004d40;
+    margin-bottom: 0.5rem;
+}
+
+#btnPromocion {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#btnPromocion:hover {
+    background-color: #004d40;
+}
+
+.oculto {
+    display: none;
+}
+
+#mensajePromo {
+    margin: 1rem auto 0 auto;
+    max-width: 400px;
+    padding: 1rem;
+    background-color: #c8e6c9;
+    border-radius: 4px;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+/* Productos */
+#productos {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+#productos h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #00796b;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h3 {
+    color: #004d40;
+    margin-bottom: 0.5rem;
+}
+
+.precio {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2e7d32;
+    margin: 1rem 0;
+    display: block;
+}
+
+.btn-comprar {
+    background-color: #0288d1;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-comprar:hover {
+    background-color: #01579b;
+}
+
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
