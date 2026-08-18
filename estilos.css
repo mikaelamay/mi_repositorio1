@@ -1,25 +1,25 @@
 /* ==========================================
-   PALETA DE COLORES - VERSIÓN 2
+   PALETA DE COLORES - VERSIÓN 2 (CSS PURO)
    ========================================== */
 :root {
-  /* Colores Principales */
-  --primary: #1e3a8a;          /* Azul marino profundo (Header / Títulos) */
-  --primary-dark: #1e293b;     /* Azul/Gris oscuro para hovers y contraste */
-  --accent: #0284c7;           /* Azul dinámico (Botones) */
-  --accent-hover: #0369a1;     /* Azul hover */
-  --highlight: #059669;        /* Verde esmeralda (Precios y Promociones) */
-  --highlight-bg: #d1fae5;     /* Fondo suave para mensaje de promoción */
+  --primary: #1e3a8a;          /* Azul marino principal */
+  --primary-dark: #1e293b;     /* Azul oscuro */
+  --accent: #0284c7;           /* Azul intermedio */
+  --accent-hover: #0369a1;     /* Hover botones */
+  --highlight: #059669;        /* Verde esmeralda (Precios / Carrito) */
+  --highlight-dark: #047857;   /* Hover Carrito */
+  --highlight-bg: #d1fae5;     /* Fondo promoción */
 
-  /* Fondos y Textos */
-  --bg-main: #f8fafc;          /* Fondo general más limpio */
+  --bg-main: #f8fafc;          /* Fondo general */
   --bg-card: #ffffff;          /* Fondo tarjetas */
   --bg-hero: #e0f2fe;          /* Fondo banner */
-  --text-primary: #0f172a;     /* Texto principal alto contraste */
-  --text-footer: #94a3b8;      /* Texto de pie de página */
-  --footer-bg: #0f172a;        /* Fondo pie de página */
+  --text-primary: #0f172a;     /* Texto principal */
+  --text-footer: #94a3b8;      /* Texto pie */
+  --footer-bg: #0f172a;        /* Fondo pie */
+  --border-color: #e2e8f0;     /* Bordes */
 }
 
-/* Base */
+/* Reset y Base */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -44,10 +44,15 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 1.5rem;
     font-weight: bold;
     transition: color 0.2s ease;
 }
@@ -57,7 +62,24 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Sección Banner / Hero */
+/* Botón Carrito */
+.btn-carrito {
+    background-color: var(--highlight);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-carrito:hover {
+    background-color: var(--highlight-dark);
+}
+
+/* Sección Hero */
 #hero {
     background-color: var(--bg-hero);
     text-align: center;
@@ -128,7 +150,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
 }
 
 .card h3 {
