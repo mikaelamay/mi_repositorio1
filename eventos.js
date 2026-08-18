@@ -1,14 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let cantidadCarrito = 0;
+    let carrito = JSON.parse(localStorage.getItem('farmaMayCarrito')) || [];
 
     const contador = document.getElementById('contadorCarrito');
-    const btnCarrito = document.getElementById('btnCarrito');
     const botonesComprar = document.querySelectorAll('.btn-comprar');
     const btnPromocion = document.getElementById('btnPromocion');
     const mensajePromo = document.getElementById('mensajePromo');
     const contenedorAlertas = document.getElementById('contenedorAlertas');
 
-    // Función para mostrar alerta temporal (desaparece en 1 segundo)
+    const listaCarro = document.getElementById('listaCarro');
+    const totalPagar = document.getElementById('totalPagar');
+    const btnVaciar = document.getElementById('btnVaciar');
+    const btnFinalizar = document.getElementById('btnFinalizar');
+
+    function actualizarContador() {
+        if (contador) {
+            contador.textContent = carrito.length;
+        }
+    }
+
+    function guardarCarrito() {
+        localStorage.setItem('farmaMayCarrito', JSON.stringify(carrito));
+        actualizarContador();
+    }
+
     function mostrarAlerta(mensaje) {
         if (!contenedorAlertas) return;
 
@@ -18,37 +32,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
         contenedorAlertas.appendChild(alerta);
 
-        // Desaparece a los 1000ms (1 segundo)
         setTimeout(() => {
             alerta.remove();
         }, 1000);
     }
 
-    // Incrementar contador y lanzar alerta temporal al comprar
     botonesComprar.forEach(boton => {
         boton.addEventListener('click', () => {
-            cantidadCarrito++;
-            if (contador) {
-                contador.textContent = cantidadCarrito;
-            }
+            const nombre = boton.getAttribute('data-nombre') || 'Producto';
+            const precio = parseFloat(boton.getAttribute('data-precio')) || 0;
+            const imagen = boton.getAttribute('data-imagen') || '';
 
-            const productoNombre = boton.getAttribute('data-nombre') || 'Producto';
-            mostrarAlerta(`✅ ${productoNombre} añadido al carrito`);
+            carrito.push({ nombre, precio, imagen });
+            guardarCarrito();
+
+            mostrarAlerta(`✅ ${nombre} añadido al carrito`);
         });
     });
 
-    // Evento del botón de la cabecera
-    if (btnCarrito) {
-        btnCarrito.addEventListener('click', () => {
-            alert(`Tienes ${cantidadCarrito} producto(s) en tu carrito de Farma May.`);
+    function renderizarCarro() {
+        if (!listaCarro || !totalPagar) return;
+
+        listaCarro.innerHTML = '';
+        let total = 0;
+
+        if (carrito.length === 0) {
+            listaCarro.innerHTML = '<li class="item-carro">El carrito está vacío.</li>';
+            totalPagar.textContent = '$0.00';
+            return;
+        }
+
+        carrito.forEach((item) => {
+            total += item.precio;
+
+            const li = document.createElement('li');
+            li.className = 'item-carro';
+            li.innerHTML = `
+                <div class="info-item">
+                    <img src="${item.imagen}" alt="${item.nombre}" class="thumb-carro">
+                    <span>${item.nombre}</span>
+                </div>
+                <strong>$${item.precio.toFixed(2)}</strong>
+            `;
+            listaCarro.appendChild(li);
+        });
+
+        totalPagar.textContent = `$${total.toFixed(2)}`;
+    }
+
+    if (btnVaciar) {
+        btnVaciar.addEventListener('click', () => {
+            carrito = [];
+            guardarCarrito();
+            renderizarCarro();
         });
     }
 
-    // Evento del botón de promoción
+    if (btnFinalizar) {
+        btnFinalizar.addEventListener('click', () => {
+            if (carrito.length === 0) {
+                alert('Tu carrito está vacío.');
+                return;
+            }
+            alert('¡Gracias por tu compra en Farma May!');
+            carrito = [];
+            guardarCarrito();
+            renderizarCarro();
+        });
+    }
+
     if (btnPromocion && mensajePromo) {
         btnPromocion.addEventListener('click', () => {
             mensajePromo.textContent = "🎉 ¡15% de descuento en tu compra de Paracetamol y Vitamina C hoy!";
             mensajePromo.classList.toggle('oculto');
         });
     }
+
+    actualizarContador();
+    renderizarCarro();
 });

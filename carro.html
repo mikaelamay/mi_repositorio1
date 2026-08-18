@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farma May - Carrito de Compras</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>💊 Farma May</h1>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html#productos">Productos</a>
+            <a href="carro.html" class="btn-carrito">
+                🛒 Carrito (<span id="contadorCarrito">0</span>)
+            </a>
+        </nav>
+    </header>
+
+    <main id="seccionCarrito">
+        <h2>Tu Carrito de Compras</h2>
+        
+        <div class="contenedor-carro">
+            <ul id="listaCarro" class="lista-carro">
+                <!-- Se llena dinámicamente con JavaScript -->
+            </ul>
+
+            <div class="resumen-carro">
+                <h3>Total a pagar: <span id="totalPagar">$0.00</span></h3>
+                <div class="acciones-carro">
+                    <button id="btnVaciar" class="btn-vaciar">Vaciar Carrito</button>
+                    <button id="btnFinalizar" class="btn-comprar">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Farma May - Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="eventos.js"></script>
+</body>
+</html>

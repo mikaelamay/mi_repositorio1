@@ -1,5 +1,5 @@
 /* ==========================================
-   PALETA DE COLORES - VERSIÓN 4
+   PALETA DE COLORES Y ESTILOS DE FARMA MAY
    ========================================== */
 :root {
   --primary: #1e3a8a;
@@ -9,6 +9,8 @@
   --highlight: #059669;
   --highlight-dark: #047857;
   --highlight-bg: #d1fae5;
+  --danger: #dc2626;
+  --danger-dark: #b91c1c;
 
   --bg-main: #f8fafc;
   --bg-card: #ffffff;
@@ -19,7 +21,7 @@
   --border-color: #e2e8f0;
 }
 
-/* Reset y Base */
+/* Base */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -65,7 +67,7 @@ nav a:hover {
 /* Botón Carrito */
 .btn-carrito {
     background-color: var(--highlight);
-    color: white;
+    color: white !important;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -73,15 +75,14 @@ nav a:hover {
     font-weight: bold;
     font-size: 0.9rem;
     transition: background-color 0.2s ease;
+    text-decoration: none !important;
 }
 
 .btn-carrito:hover {
     background-color: var(--highlight-dark);
 }
 
-/* ==========================================
-   ALERTAS FLOTANTES (VERSIÓN 4)
-   ========================================== */
+/* Alertas Flotantes */
 #contenedorAlertas {
     position: fixed;
     top: 20px;
@@ -181,6 +182,14 @@ nav a:hover {
     border: 1px solid var(--border-color);
 }
 
+.img-producto {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
 .card h3 {
     color: var(--primary);
     margin-bottom: 0.5rem;
@@ -198,7 +207,7 @@ nav a:hover {
     background-color: var(--accent);
     color: white;
     border: none;
-    padding: 0.6rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
@@ -207,6 +216,80 @@ nav a:hover {
 
 .btn-comprar:hover {
     background-color: var(--accent-hover);
+}
+
+/* Estilos de Carro.html */
+#seccionCarrito {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+#seccionCarrito h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contenedor-carro {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.lista-carro {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.item-carro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.thumb-carro {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.resumen-carro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.btn-vaciar {
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-vaciar:hover {
+    background-color: var(--danger-dark);
+}
+
+.acciones-carro {
+    display: flex;
+    gap: 1rem;
 }
 
 /* Pie de página */
