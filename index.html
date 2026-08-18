@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farma May - Tu Salud Primero</title>
+    <title>Farma May - Tu Salud Primero (v4)</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+
+    <!-- Contenedor para Alertas Flotantes -->
+    <div id="contenedorAlertas"></div>
 
     <header>
         <div class="logo">
@@ -36,21 +39,21 @@
                 <h3>Paracetamol 500mg</h3>
                 <p>Alivio efectivo para el dolor y la fiebre.</p>
                 <span class="precio">$2.50</span>
-                <button class="btn-comprar">Agregar al carrito</button>
+                <button class="btn-comprar" data-nombre="Paracetamol 500mg">Agregar al carrito</button>
             </article>
 
             <article class="card">
                 <h3>Vitamina C 1000mg</h3>
                 <p>Refuerza tu sistema inmunológico.</p>
                 <span class="precio">$8.00</span>
-                <button class="btn-comprar">Agregar al carrito</button>
+                <button class="btn-comprar" data-nombre="Vitamina C 1000mg">Agregar al carrito</button>
             </article>
 
             <article class="card">
                 <h3>Alcohol en Gel 500ml</h3>
                 <p>Desinfectante e higienizante para manos.</p>
                 <span class="precio">$3.50</span>
-                <button class="btn-comprar">Agregar al carrito</button>
+                <button class="btn-comprar" data-nombre="Alcohol en Gel 500ml">Agregar al carrito</button>
             </article>
         </div>
     </main>
