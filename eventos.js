@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnVaciar = document.getElementById('btnVaciar');
     const btnFinalizar = document.getElementById('btnFinalizar');
 
-    // Filtros por categoría
     const botonesCategorias = document.querySelectorAll('.btn-categoria');
     const tarjetasProductos = document.querySelectorAll('.grid-productos .card');
 
@@ -41,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // Filtrado de productos por categoría
     botonesCategorias.forEach(boton => {
         boton.addEventListener('click', () => {
             botonesCategorias.forEach(b => b.classList.remove('activo'));
@@ -80,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (carrito.length === 0) {
             listaCarro.innerHTML = '<li class="item-carro">El carrito está vacío.</li>';
-            totalPagar.textContent = '$0.00';
+            totalPagar.textContent = 'Bs. 0.00';
             return;
         }
 
@@ -93,12 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="info-item">
                     <span>${item.nombre}</span>
                 </div>
-                <strong>$${item.precio.toFixed(2)}</strong>
+                <strong>Bs. ${item.precio.toFixed(2)}</strong>
             `;
             listaCarro.appendChild(li);
         });
 
-        totalPagar.textContent = `$${total.toFixed(2)}`;
+        totalPagar.textContent = `Bs. ${total.toFixed(2)}`;
     }
 
     if (btnVaciar) {
