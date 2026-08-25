@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnVaciar = document.getElementById('btnVaciar');
     const btnFinalizar = document.getElementById('btnFinalizar');
 
+    // Filtros por categoría
+    const botonesCategorias = document.querySelectorAll('.btn-categoria');
+    const tarjetasProductos = document.querySelectorAll('.grid-productos .card');
+
     function actualizarContador() {
         if (contador) {
             contador.textContent = carrito.length;
@@ -36,6 +40,25 @@ document.addEventListener('DOMContentLoaded', () => {
             alerta.remove();
         }, 1000);
     }
+
+    // Filtrado de productos por categoría
+    botonesCategorias.forEach(boton => {
+        boton.addEventListener('click', () => {
+            botonesCategorias.forEach(b => b.classList.remove('activo'));
+            boton.classList.add('activo');
+
+            const categoriaSeleccionada = boton.getAttribute('data-categoria');
+
+            tarjetasProductos.forEach(tarjeta => {
+                const categoriaProducto = tarjeta.getAttribute('data-categoria');
+                if (categoriaSeleccionada === 'todos' || categoriaProducto === categoriaSeleccionada) {
+                    tarjeta.style.display = 'flex';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        });
+    });
 
     botonesComprar.forEach(boton => {
         boton.addEventListener('click', () => {
