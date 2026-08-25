@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const listaCarro = document.getElementById('listaCarro');
     const totalPagar = document.getElementById('totalPagar');
     const btnVaciar = document.getElementById('btnVaciar');
-    const btnFinalizar = document.getElementById('btnFinalizar');
+    const formPedido = document.getElementById('formPedido');
 
     const botonesCategorias = document.querySelectorAll('.btn-categoria');
     const tarjetasProductos = document.querySelectorAll('.grid-productos .card');
@@ -79,8 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (carrito.length === 0) {
             listaCarro.innerHTML = '<li class="item-carro">El carrito está vacío.</li>';
             totalPagar.textContent = 'Bs. 0.00';
+            if (formPedido) formPedido.style.display = 'none';
             return;
         }
+
+        if (formPedido) formPedido.style.display = 'block';
 
         carrito.forEach((item) => {
             total += item.precio;
@@ -107,15 +110,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (btnFinalizar) {
-        btnFinalizar.addEventListener('click', () => {
+    if (formPedido) {
+        formPedido.addEventListener('submit', (e) => {
+            e.preventDefault();
+
             if (carrito.length === 0) {
                 alert('Tu carrito está vacío.');
                 return;
             }
-            alert('¡Gracias por tu compra en Farma May!');
+
+            const nombre = document.getElementById('nombreCliente').value;
+            const direccion = document.getElementById('direccionCliente').value;
+
+            alert(`¡Gracias por tu compra, ${nombre}!\nTu pedido será entregado en: ${direccion}.`);
+            
             carrito = [];
             guardarCarrito();
+            formPedido.reset();
             renderizarCarro();
         });
     }

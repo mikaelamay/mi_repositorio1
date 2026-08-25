@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farma May - Carrito de Compras</title>
+    <title>Carrito de Compras - Farma May</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <h1>💊 Farma May</h1>
+            <h1>🐱 Farma May</h1>
         </div>
         <nav>
             <a href="index.html">Inicio</a>
             <a href="index.html#productos">Productos</a>
+            <a href="#contacto">Contacto</a>
             <a href="carro.html" class="btn-carrito">
                 🛒 Carrito (<span id="contadorCarrito">0</span>)
             </a>
@@ -23,24 +24,39 @@
 
     <main id="seccionCarrito">
         <h2>Tu Carrito de Compras</h2>
-        
         <div class="contenedor-carro">
             <ul id="listaCarro" class="lista-carro">
                 <!-- Se llena dinámicamente con JavaScript -->
             </ul>
 
             <div class="resumen-carro">
-                <h3>Total a pagar: <span id="totalPagar">$0.00</span></h3>
-                <div class="acciones-carro">
-                    <button id="btnVaciar" class="btn-vaciar">Vaciar Carrito</button>
-                    <button id="btnFinalizar" class="btn-comprar">Finalizar Compra</button>
-                </div>
+                <h3>Total: <span id="totalPagar">Bs. 0.00</span></h3>
+                <button id="btnVaciar" class="btn-vaciar">Vaciar Carrito</button>
             </div>
+
+            <!-- Formulario de Pedido -->
+            <form id="formPedido" class="form-pedido">
+                <h3>Datos de Entrega</h3>
+                <div class="campo-form">
+                    <label for="nombreCliente">Nombre Completo:</label>
+                    <input type="text" id="nombreCliente" required placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="campo-form">
+                    <label for="telefonoCliente">Teléfono / WhatsApp:</label>
+                    <input type="tel" id="telefonoCliente" required placeholder="Ej. 70000000">
+                </div>
+                <div class="campo-form">
+                    <label for="direccionCliente">Dirección de Envío:</label>
+                    <input type="text" id="direccionCliente" required placeholder="Ej. Av. 6 de Marzo #123">
+                </div>
+                <button type="submit" id="btnFinalizar" class="btn-comprar btn-bloque">Confirmar y Finalizar Compra</button>
+            </form>
         </div>
     </main>
 
-    <footer>
+    <footer id="contacto">
         <p>&copy; Farma May - Todos los derechos reservados.</p>
+        <p>Atención al cliente: +591 7000-0000 | Dirección: Av. Principal #123</p>
     </footer>
 
     <script src="eventos.js"></script>

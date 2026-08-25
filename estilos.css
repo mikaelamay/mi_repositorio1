@@ -311,3 +311,46 @@ footer {
     color: white;
     border-color: var(--primary);
 }
+/* Formulario de Pedido */
+.form-pedido {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed var(--border-color);
+}
+
+.form-pedido h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.campo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.campo-form label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.campo-form input {
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.campo-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.btn-bloque {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+}
