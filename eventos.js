@@ -41,9 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         boton.addEventListener('click', () => {
             const nombre = boton.getAttribute('data-nombre') || 'Producto';
             const precio = parseFloat(boton.getAttribute('data-precio')) || 0;
-            const imagen = boton.getAttribute('data-imagen') || '';
 
-            carrito.push({ nombre, precio, imagen });
+            carrito.push({ nombre, precio });
             guardarCarrito();
 
             mostrarAlerta(`✅ ${nombre} añadido al carrito`);
@@ -69,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
             li.className = 'item-carro';
             li.innerHTML = `
                 <div class="info-item">
-                    <img src="${item.imagen}" alt="${item.nombre}" class="thumb-carro">
                     <span>${item.nombre}</span>
                 </div>
                 <strong>$${item.precio.toFixed(2)}</strong>
